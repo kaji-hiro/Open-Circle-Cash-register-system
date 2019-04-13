@@ -38,3 +38,25 @@ def cloth_price():
         return_value = 'error'
 
     return return_value
+
+def magazine():
+    return_value = 0
+    clothes_list = []
+
+    with open('clothdata.csv', 'r', encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            clothes_list.append(row)
+
+    if int(clothes_list[-1][7]) > 0:
+        print('雑誌を買いますか？　はい：y\n　　　 　　　 いいえ：n')
+        x = input()
+        if x == 'y':
+            clothes_list[-1][7] = int(clothes_list[-1][7]) - 1
+            # ファイルの販売数をデクリメント
+            with open('clothdata.csv', 'w', encoding="utf-8") as f:
+                writer = csv.writer(f, lineterminator='\n')
+                writer.writerows(clothes_list)
+            return_value = 500
+
+    return return_value

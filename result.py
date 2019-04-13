@@ -4,7 +4,7 @@ x = 1
 clothes_list = []
 clothes_status = []
 clothes_num = []
-group = [0,0,0,0,0,0,0,0]
+group = [0,0,0,0,0,0,0,0,0]
 
 with open('clothdata.csv', 'r', encoding="utf-8") as f:
     reader = csv.reader(f)
@@ -35,3 +35,4 @@ print('FDL      :', group[4] - group[3])
 print('ENJI     :', group[5] - group[4])
 print('AFA      :', group[6] - group[5])
 print('Replus   :', group[7] - group[6])
+print('繊維　 　:', (30 - int(clothes_list[-1][7])) * 500, '{0}冊'.format(30 - int(clothes_list[-1][7])))

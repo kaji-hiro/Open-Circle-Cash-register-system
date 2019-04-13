@@ -1,5 +1,6 @@
 import csv
 from function import cloth_price
+from function import magazine
 
 status = 'y'
 fee_sum = 0
@@ -15,6 +16,7 @@ while status == 'y':
         print('続けますか？　はい：y\n　　　 　　　 いいえ：n')
         status = input()
 
+fee_sum += int(magazine())
 print('\n')
 
 print('合計金額:', fee_sum)
